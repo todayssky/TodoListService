@@ -12,15 +12,14 @@ class TodoService(
         val todoRepository: TodoRepository
 ) {
     fun getTodos(): List<Todo> = todoRepository.findAll()
-    fun createTodo(newTodoReq: NewTodoReq) {
-        Todo.create(newTodoReq)
-                .let(todoRepository::save)
-    }
+    fun createTodo(newTodoReq: NewTodoReq) = Todo.create(newTodoReq)
+            .let(todoRepository::save)
+
 
     fun checkTodo(todoId: Long): Todo =
-        getTodoById(todoId)
-                .apply { isChecked = !isChecked }
-                .let(todoRepository::save)
+            getTodoById(todoId)
+                    .apply { isChecked = !isChecked }
+                    .let(todoRepository::save)
 
     fun getTodoById(todoId: Long): Todo = todoRepository
             .findById(todoId)

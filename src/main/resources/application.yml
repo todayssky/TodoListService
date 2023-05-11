@@ -6,8 +6,8 @@ spring:
     password: 1113
   jpa:
     hibernate:
-      ddl-auto: none # ??? ?? ??
-    show-sql: true # SQL ?? ??
+      ddl-auto: none # table auto create
+    show-sql: true # SQL Log
     properties:
       hibernate:
         format_sql: # SQL pretty print
